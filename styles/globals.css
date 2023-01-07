@@ -11,3 +11,19 @@
 	--MediumGray: hsl(0, 0%, 41%);
 	--AlmostBlack: hsl(0, 0%, 8%);
 }
+
+body {
+	color: var(--AlmostBlack);
+	font-weight: 500;
+	font-size: 1.125rem;
+}
+
+a {
+	text-decoration: none;
+  color: var(--AlmostBlack);
+  font-weight: 500;
+}
+
+.desktop-nav {
+  display: none;
+}
