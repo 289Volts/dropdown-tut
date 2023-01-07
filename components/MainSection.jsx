@@ -9,7 +9,7 @@ const epilogue = Epilogue({ subsets: ["latin"] });
 const MainSection = () => {
   return <div>
     <Header fontClass={epilogue.className} />
-    <HeroSection fontClass={epilogue.className}  />
+    {/* <HeroSection fontClass={epilogue.className}  /> */}
   </div>;
 };
 
