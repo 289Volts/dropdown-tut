@@ -27,7 +27,7 @@ const Header = ({ fontClass }) => {
 				</div>
 			</div>
 
-			<div className="mobile-nav">
+			<div className="mobile-nav flex flex-between reltive">
 				<Link href="/">
 					<Image src={Logo} alt="Logo" />
 				</Link>
@@ -35,8 +35,8 @@ const Header = ({ fontClass }) => {
 					<Image src={Open} alt="Logo" />
 				</Link>
 
-				<nav className="mobile-nav-items">
-					<div className="close-btn">
+				<nav className="mobile-nav-items absolute">
+					<div className="close-btn flex">
 						<Link href="/">
 							<Image src={Close} alt="Logo" />
 						</Link>
