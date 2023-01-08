@@ -52,7 +52,7 @@ const Header = ({ fontClass }) => {
 					</Link>
 					<nav className="desktop-nav-items">
 						<ul className="desktop-nav-items__links flex">
-							<li className="relative">
+							<li className="relative features">
 								<p onClick={toggleFeaturesMenu} className="desktop-nav__list-item flex">
 									Features <Image src={isOpen.features ? arrowUp : arrowDown} alt="arrow" />
 								</p>
