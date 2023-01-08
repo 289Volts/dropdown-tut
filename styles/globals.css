@@ -25,7 +25,7 @@ a {
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 .flex {
@@ -58,15 +58,34 @@ header {
 }
 
 .mobile-nav-items {
-  background-color: white;
-  padding: 1.5rem 1rem 0 1.5rem;
-  width: 80%;
-  height: 100vh;
-  top: 0;
-  right: 0;
+	background-color: white;
+	padding: 1.5rem 1rem 0 1.5rem;
+	width: 62%;
+	height: 100vh;
+	top: 0;
+	right: 0;
 }
 
 .close-btn {
-  justify-content: end;
-  margin-bottom: 2rem;
+	justify-content: end;
+	margin-bottom: 2rem;
+}
+
+.drop-down__features,
+.drop-down__company {
+	padding: 1.8rem;
+}
+
+.drop-down__features-list-items:not(:last-child),
+.drop-down__company-list-items:not(:last-child) {
+	margin-bottom: 1.2rem;
+}
+
+.drop-down__features-list-items img {
+	width: 20px;
+	height: 20px;
+	margin-right: 1rem;
+}
+
+.drop-down__features-link {
 }

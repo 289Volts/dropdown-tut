@@ -8,6 +8,8 @@ import todo from "../public/assets/icons/icon-todo.svg";
 import reminders from "../public/assets/icons/icon-reminders.svg";
 import planning from "../public/assets/icons/icon-planning.svg";
 import calendar from "../public/assets/icons/icon-calendar.svg";
+import arrowDown from "../public/assets/icons/icon-arrow-down.svg";
+import arrowUp from "../public/assets/icons/icon-arrow-up.svg";
 
 const Header = ({ fontClass }) => {
 	return (
@@ -48,28 +50,28 @@ const Header = ({ fontClass }) => {
 					<ul className="mobile-nav-items__links">
 						<li className="relative">
 							<p className="">Features</p>
-							<div className="">
-								<ul className="">
-									<li className="">
-										<Link href="">
+							<div className="drop-down__features">
+								<ul className="drop-down-__features-list">
+									<li className="drop-down__features-list-items">
+										<Link className="drop-down__features-link flex" href="">
 											<Image src={todo} alt="todo icon" />
 											Todo List
 										</Link>
 									</li>
-									<li className="">
-										<Link href="">
+									<li className="drop-down__features-list-items">
+										<Link className="drop-down__features-link flex" href="">
 											<Image src={calendar} alt="calendar icon" />
 											Calendar
 										</Link>
 									</li>
-									<li className="">
-										<Link href="">
+									<li className="drop-down__features-list-items">
+										<Link className="drop-down__features-link flex" href="">
 											<Image src={reminders} alt="reminders icon" />
 											Reminders
 										</Link>
 									</li>
-									<li className="">
-										<Link href="">
+									<li className="drop-down__features-list-items">
+										<Link className="drop-down__features-link flex" href="">
 											<Image src={planning} alt="planning icon" />
 											Planning
 										</Link>
@@ -79,12 +81,31 @@ const Header = ({ fontClass }) => {
 						</li>
 						<li className="relative">
 							<p className="">Company</p>
+							<div className="drop-down__company">
+								<ul className="drop-down-__company-list">
+									<li className="drop-down__company-list-items">
+										<Link className="drop-down__company-link " href="">
+											History
+										</Link>
+									</li>
+									<li className="drop-down__company-list-items">
+										<Link className="drop-down__company-link " href="">
+											Our Team
+										</Link>
+									</li>
+									<li className="drop-down__company-list-items">
+										<Link className="drop-down__company-link " href="">
+											Blog
+										</Link>
+									</li>
+								</ul>
+							</div>
 						</li>
 						<li className="">
 							<Link href="">Careers</Link>
 						</li>
 						<li className="">
-							<Link href="">Blog</Link>
+							<Link href="">About</Link>
 						</li>
 					</ul>
 					<div className="ctaBtn-container">
