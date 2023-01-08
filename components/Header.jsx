@@ -17,7 +17,7 @@ const Header = ({ fontClass }) => {
 		company: false,
 		nav: false,
 	});
-	console.log({ ...isOpen });
+
 	const toggleFeaturesMenu = () => {
 		setIsOpen({ ...isOpen, features: !isOpen.features });
 		if (!isOpen.features) {
@@ -45,19 +45,89 @@ const Header = ({ fontClass }) => {
 
 	return (
 		<header className={`${fontClass}`}>
-			<div className="desktop-nav">
-				<div className="header-r__side">
+			<div className="desktop-nav flex-between">
+				<div className="header-r__side flex">
 					<Link href="/">
 						<Image src={logo} alt="Logo" />
 					</Link>
-					<nav className="desktop-nav-items"></nav>
+					<nav className="desktop-nav-items">
+						<ul className="desktop-nav-items__links flex">
+							<li className="relative">
+								<p onClick={toggleFeaturesMenu} className="desktop-nav__list-item flex">
+									Features <Image src={isOpen.features ? arrowUp : arrowDown} alt="arrow" />
+								</p>
+								<div className="drop-down__features">
+									<ul className="drop-down-__features-list">
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={todo} alt="todo icon" />
+												Todo List
+											</Link>
+										</li>
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={calendar} alt="calendar icon" />
+												Calendar
+											</Link>
+										</li>
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={reminders} alt="reminders icon" />
+												Reminders
+											</Link>
+										</li>
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={planning} alt="planning icon" />
+												Planning
+											</Link>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li className="company relative">
+								<p onClick={toggleCompanyMenu} className="desktop-nav__list-item flex company-list-item">
+									Company <Image src={isOpen.company ? arrowUp : arrowDown} alt="arrow" />
+								</p>
+								<div className="drop-down__company">
+									<ul className="drop-down-__company-list">
+										<li className="drop-down__company-list-items">
+											<Link className="drop-down__company-link " href="">
+												History
+											</Link>
+										</li>
+										<li className="drop-down__company-list-items">
+											<Link className="drop-down__company-link " href="">
+												Our Team
+											</Link>
+										</li>
+										<li className="drop-down__company-list-items blog">
+											<Link className="drop-down__company-link" href="">
+												Blog
+											</Link>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li className="desktop-nav__list-item">
+								<Link className="desktop-nav__link" href="">
+									Careers
+								</Link>
+							</li>
+							<li className="desktop-nav__list-item">
+								<Link className="desktop-nav__link" href="">
+									About
+								</Link>
+							</li>
+						</ul>
+					</nav>
 				</div>
 				<div className="ctaBtn-container">
-					<ul className="">
-						<li className="">
+					<ul className="ctaBtn-list flex">
+						<li className="login">
 							<Link href="">Login</Link>
 						</li>
-						<li className="">
+						<li className="register flex flex-between">
 							<Link href="">Register</Link>
 						</li>
 					</ul>
@@ -68,9 +138,8 @@ const Header = ({ fontClass }) => {
 				<Link href="/">
 					<Image src={logo} alt="Logo" />
 				</Link>
-				
-					<Image onClick={toggleNavMenu} src={open} alt="Logo" />
-				
+
+				<Image onClick={toggleNavMenu} src={open} alt="Logo" />
 
 				<nav className="mobile-nav-items absolute">
 					<div className="close-btn flex">
