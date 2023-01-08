@@ -19,7 +19,6 @@ const Header = ({ fontClass }) => {
 	});
 	console.log({ ...isOpen });
 	const toggleFeaturesMenu = () => {
-		console.log("features ", isOpen);
 		setIsOpen({ ...isOpen, features: !isOpen.features });
 		if (!isOpen.features) {
 			document.querySelector(".drop-down__features").classList.add("show");
@@ -28,7 +27,6 @@ const Header = ({ fontClass }) => {
 		}
 	};
 	const toggleCompanyMenu = () => {
-		console.log("company work", isOpen);
 		setIsOpen({ ...isOpen, company: !isOpen.company });
 		if (!isOpen.company) {
 			document.querySelector(".drop-down__company").classList.add("show");
@@ -37,8 +35,12 @@ const Header = ({ fontClass }) => {
 		}
 	};
 	const toggleNavMenu = () => {
-		console.log("nav work", isOpen);
 		setIsOpen({ ...isOpen, nav: !isOpen.nav });
+		if (!isOpen.nav) {
+			document.querySelector(".mobile-nav-items").classList.add("show");
+		} else {
+			document.querySelector(".mobile-nav-items").classList.remove("show");
+		}
 	};
 
 	return (
@@ -62,11 +64,13 @@ const Header = ({ fontClass }) => {
 				</div>
 			</div>
 
-			<div className="mobile-nav flex flex-between">
+			<div className="mobile-nav flex">
 				<Link href="/">
 					<Image src={logo} alt="Logo" />
 				</Link>
-				<Image onClick={toggleNavMenu} src={open} alt="Logo" />
+				
+					<Image onClick={toggleNavMenu} src={open} alt="Logo" />
+				
 
 				<nav className="mobile-nav-items absolute">
 					<div className="close-btn flex">
@@ -74,84 +78,86 @@ const Header = ({ fontClass }) => {
 							<Image src={close} alt="Logo" />
 						</Link>
 					</div>
-					<ul className="mobile-nav-items__links">
-						<li className="relative">
-							<p onClick={toggleFeaturesMenu} className="mobile-nav__list-item flex">
-								Features <Image src={isOpen.features ? arrowUp : arrowDown} alt="Logo" />
-							</p>
-							<div className="drop-down__features">
-								<ul className="drop-down-__features-list">
-									<li className="drop-down__features-list-items">
-										<Link className="drop-down__features-link flex" href="">
-											<Image src={todo} alt="todo icon" />
-											Todo List
-										</Link>
-									</li>
-									<li className="drop-down__features-list-items">
-										<Link className="drop-down__features-link flex" href="">
-											<Image src={calendar} alt="calendar icon" />
-											Calendar
-										</Link>
-									</li>
-									<li className="drop-down__features-list-items">
-										<Link className="drop-down__features-link flex" href="">
-											<Image src={reminders} alt="reminders icon" />
-											Reminders
-										</Link>
-									</li>
-									<li className="drop-down__features-list-items">
-										<Link className="drop-down__features-link flex" href="">
-											<Image src={planning} alt="planning icon" />
-											Planning
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li className="relative">
-							<p onClick={toggleCompanyMenu} className="mobile-nav__list-item flex">
-								Company <Image src={isOpen.company ? arrowUp : arrowDown} alt="Logo" />
-							</p>
-							<div className="drop-down__company">
-								<ul className="drop-down-__company-list">
-									<li className="drop-down__company-list-items">
-										<Link className="drop-down__company-link " href="">
-											History
-										</Link>
-									</li>
-									<li className="drop-down__company-list-items">
-										<Link className="drop-down__company-link " href="">
-											Our Team
-										</Link>
-									</li>
-									<li className="drop-down__company-list-items">
-										<Link className="drop-down__company-link " href="">
-											Blog
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li className="mobile-nav__list-item">
-							<Link className="mobile-nav__link" href="">
-								Careers
-							</Link>
-						</li>
-						<li className="mobile-nav__list-item">
-							<Link className="mobile-nav__link" href="">
-								About
-							</Link>
-						</li>
-					</ul>
-					<div className="ctaBtn-container">
-						<ul className="ctaBtn-list">
-							<li className="mobile-nav__list-item">
-								<Link href="">Login</Link>
+					<div className="mobile-nav">
+						<ul className="mobile-nav-items__links">
+							<li className="relative">
+								<p onClick={toggleFeaturesMenu} className="mobile-nav__list-item flex">
+									Features <Image src={isOpen.features ? arrowUp : arrowDown} alt="arrow" />
+								</p>
+								<div className="drop-down__features">
+									<ul className="drop-down-__features-list">
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={todo} alt="todo icon" />
+												Todo List
+											</Link>
+										</li>
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={calendar} alt="calendar icon" />
+												Calendar
+											</Link>
+										</li>
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={reminders} alt="reminders icon" />
+												Reminders
+											</Link>
+										</li>
+										<li className="drop-down__features-list-items">
+											<Link className="drop-down__features-link flex" href="">
+												<Image src={planning} alt="planning icon" />
+												Planning
+											</Link>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li className="relative">
+								<p onClick={toggleCompanyMenu} className="mobile-nav__list-item flex">
+									Company <Image src={isOpen.company ? arrowUp : arrowDown} alt="arrow" />
+								</p>
+								<div className="drop-down__company">
+									<ul className="drop-down-__company-list">
+										<li className="drop-down__company-list-items">
+											<Link className="drop-down__company-link " href="">
+												History
+											</Link>
+										</li>
+										<li className="drop-down__company-list-items">
+											<Link className="drop-down__company-link " href="">
+												Our Team
+											</Link>
+										</li>
+										<li className="drop-down__company-list-items blog">
+											<Link className="drop-down__company-link" href="">
+												Blog
+											</Link>
+										</li>
+									</ul>
+								</div>
 							</li>
 							<li className="mobile-nav__list-item">
-								<Link href="">Register</Link>
+								<Link className="mobile-nav__link" href="">
+									Careers
+								</Link>
+							</li>
+							<li className="mobile-nav__list-item">
+								<Link className="mobile-nav__link" href="">
+									About
+								</Link>
 							</li>
 						</ul>
+						<div className="ctaBtn-container">
+							<ul className="ctaBtn-list">
+								<li className="login">
+									<Link href="">Login</Link>
+								</li>
+								<li className="register flex flex-between">
+									<Link href="">Register</Link>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</nav>
 			</div>
