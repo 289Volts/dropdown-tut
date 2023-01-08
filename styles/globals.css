@@ -68,4 +68,5 @@ header {
 
 .close-btn {
   justify-content: end;
+  margin-bottom: 2rem;
 }

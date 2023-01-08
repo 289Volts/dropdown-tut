@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import HeroSection from "./HeroSection";
+// import HeroSection from "./HeroSection";
 
 import { Epilogue } from "@next/font/google";
 
