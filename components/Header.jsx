@@ -12,6 +12,35 @@ import arrowDown from "../public/assets/icons/icon-arrow-down.svg";
 import arrowUp from "../public/assets/icons/icon-arrow-up.svg";
 
 const Header = ({ fontClass }) => {
+	const [isOpen, setIsOpen] = React.useState({
+		features: false,
+		company: false,
+		nav: false,
+	});
+	console.log({ ...isOpen });
+	const toggleFeaturesMenu = () => {
+		console.log("features ", isOpen);
+		setIsOpen({ ...isOpen, features: !isOpen.features });
+		if (!isOpen.features) {
+			document.querySelector(".drop-down__features").classList.add("show");
+		} else {
+			document.querySelector(".drop-down__features").classList.remove("show");
+		}
+	};
+	const toggleCompanyMenu = () => {
+		console.log("company work", isOpen);
+		setIsOpen({ ...isOpen, company: !isOpen.company });
+		if (!isOpen.company) {
+			document.querySelector(".drop-down__company").classList.add("show");
+		} else {
+			document.querySelector(".drop-down__company").classList.remove("show");
+		}
+	};
+	const toggleNavMenu = () => {
+		console.log("nav work", isOpen);
+		setIsOpen({ ...isOpen, nav: !isOpen.nav });
+	};
+
 	return (
 		<header className={`${fontClass}`}>
 			<div className="desktop-nav">
@@ -37,19 +66,19 @@ const Header = ({ fontClass }) => {
 				<Link href="/">
 					<Image src={logo} alt="Logo" />
 				</Link>
-				<Link href="/">
-					<Image src={open} alt="Logo" />
-				</Link>
+				<Image onClick={toggleNavMenu} src={open} alt="Logo" />
 
 				<nav className="mobile-nav-items absolute">
 					<div className="close-btn flex">
-						<Link href="/">
+						<Link onClick={toggleNavMenu} href="/">
 							<Image src={close} alt="Logo" />
 						</Link>
 					</div>
 					<ul className="mobile-nav-items__links">
 						<li className="relative">
-							<p className="">Features</p>
+							<p onClick={toggleFeaturesMenu} className="mobile-nav__list-item flex">
+								Features <Image src={isOpen.features ? arrowUp : arrowDown} alt="Logo" />
+							</p>
 							<div className="drop-down__features">
 								<ul className="drop-down-__features-list">
 									<li className="drop-down__features-list-items">
@@ -80,7 +109,9 @@ const Header = ({ fontClass }) => {
 							</div>
 						</li>
 						<li className="relative">
-							<p className="">Company</p>
+							<p onClick={toggleCompanyMenu} className="mobile-nav__list-item flex">
+								Company <Image src={isOpen.company ? arrowUp : arrowDown} alt="Logo" />
+							</p>
 							<div className="drop-down__company">
 								<ul className="drop-down-__company-list">
 									<li className="drop-down__company-list-items">
@@ -101,19 +132,23 @@ const Header = ({ fontClass }) => {
 								</ul>
 							</div>
 						</li>
-						<li className="">
-							<Link href="">Careers</Link>
+						<li className="mobile-nav__list-item">
+							<Link className="mobile-nav__link" href="">
+								Careers
+							</Link>
 						</li>
-						<li className="">
-							<Link href="">About</Link>
+						<li className="mobile-nav__list-item">
+							<Link className="mobile-nav__link" href="">
+								About
+							</Link>
 						</li>
 					</ul>
 					<div className="ctaBtn-container">
-						<ul className="">
-							<li className="">
+						<ul className="ctaBtn-list">
+							<li className="mobile-nav__list-item">
 								<Link href="">Login</Link>
 							</li>
-							<li className="">
+							<li className="mobile-nav__list-item">
 								<Link href="">Register</Link>
 							</li>
 						</ul>
