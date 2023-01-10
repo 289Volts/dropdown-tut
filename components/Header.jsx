@@ -1,4 +1,5 @@
 import React from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/assets/images/logo.svg";
@@ -19,6 +20,7 @@ const Header = ({ fontClass }) => {
 	});
 
 	const toggleFeaturesMenu = () => {
+		console.log("features work");
 		setIsOpen({ ...isOpen, features: !isOpen.features });
 		if (!isOpen.features) {
 			document.querySelector(".drop-down__features").classList.add("show");
@@ -27,6 +29,7 @@ const Header = ({ fontClass }) => {
 		}
 	};
 	const toggleCompanyMenu = () => {
+		console.log("company work");
 		setIsOpen({ ...isOpen, company: !isOpen.company });
 		if (!isOpen.company) {
 			document.querySelector(".drop-down__company").classList.add("show");
@@ -57,7 +60,7 @@ const Header = ({ fontClass }) => {
 									Features <Image src={isOpen.features ? arrowUp : arrowDown} alt="arrow" />
 								</p>
 								<div className="drop-down__features">
-									<ul className="drop-down-__features-list">
+									<ul className="drop-down__features-list">
 										<li className="drop-down__features-list-items">
 											<Link className="drop-down__features-link flex" href="">
 												<Image src={todo} alt="todo icon" />
